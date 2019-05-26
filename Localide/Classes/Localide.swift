@@ -108,15 +108,15 @@ extension Localide {
             return
         }
 
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.actionSheet)
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.actionSheet)
 
         for app in apps {
-            let alertAction = UIAlertAction.localideAction(withTitle: app.appName, style: UIAlertActionStyle.default, handler: { _ in completion(app) })
+            let alertAction = UIAlertAction.localideAction(withTitle: app.appName, style: UIAlertAction.Style.default, handler: { _ in completion(app) })
             alertAction.mockMapApp = app
             alertController.addAction(alertAction)
         }
 
-        let cancelAction = UIAlertAction(title: cancelActionTitle, style: UIAlertActionStyle.cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: cancelActionTitle, style: UIAlertAction.Style.cancel, handler: nil)
         alertController.addAction(cancelAction)
 
         UIApplication.topViewController()?.present(alertController, animated: true, completion: nil)
